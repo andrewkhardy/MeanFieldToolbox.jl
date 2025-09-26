@@ -1,7 +1,7 @@
 module Blocks
     export ParamBlock, UpdateBlock!, GetAllBondParams
 
-    using TightBindingToolbox
+    using TightBindingToolkit
 
     mutable struct ParamBlock{T, R}
 

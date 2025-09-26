@@ -1,12 +1,12 @@
 module MFTIter
     export DecomposeGr, MFTIterator
 
-    using TightBindingToolbox, LinearAlgebra, Statistics
+    using TightBindingToolkit, LinearAlgebra, Statistics
 
-    using ..MeanFieldToolbox.MFTBonds: GetBondCoorelation
-    using ..MeanFieldToolbox.TBMFT: TightBindingMFT, GetMFTEnergy
-    using ..MeanFieldToolbox.BDGMFT: BdGMFT, GetMFTEnergy
-    using ..MeanFieldToolbox.Build: BuildFromInteractions!
+    using ..MeanFieldToolkit.MFTBonds: GetBondCoorelation
+    using ..MeanFieldToolkit.TBMFT: TightBindingMFT, GetMFTEnergy
+    using ..MeanFieldToolkit.BDGMFT: BdGMFT, GetMFTEnergy
+    using ..MeanFieldToolkit.Build: BuildFromInteractions!
 
     #####/// TODO : Try to vectorize maybe? Literally no need
 @doc """

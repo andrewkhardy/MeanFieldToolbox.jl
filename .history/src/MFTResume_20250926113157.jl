@@ -1,10 +1,10 @@
 module MFTResume
     export ResumeMFT!, ReadMFT
 
-    using FixedPointToolbox, Logging, LinearAlgebra
+    using FixedPointToolkit, Logging, LinearAlgebra
 
-    using ..MeanFieldToolbox.MFTIter: MFTIterator
-    using ..MeanFieldToolbox.MFTRun: SolveMFT!
+    using ..MeanFieldToolkit.MFTIter: MFTIterator
+    using ..MeanFieldToolkit.MFTRun: SolveMFT!
 
 
 @doc """

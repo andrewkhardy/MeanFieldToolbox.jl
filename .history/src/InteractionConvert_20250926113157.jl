@@ -1,7 +1,7 @@
 module InteractionConvert
     export SpinToPartonCoupling, DensityToPartonCoupling
 
-    using Tullio, LinearAlgebra, TightBindingToolbox
+    using Tullio, LinearAlgebra, TightBindingToolkit
 
 
 @doc """

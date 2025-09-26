@@ -2,9 +2,9 @@ module TBMFT
 
     export TightBindingMFT, GetMFTEnergy
 
-    using TightBindingToolbox, LinearAlgebra, Logging
+    using TightBindingToolkit, LinearAlgebra, Logging
 
-    using ..MeanFieldToolbox.MFTBonds: GetBondCoorelation
+    using ..MeanFieldToolkit.MFTBonds: GetBondCoorelation
 
 
 @doc """

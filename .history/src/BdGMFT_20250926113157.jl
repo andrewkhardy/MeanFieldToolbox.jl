@@ -2,11 +2,11 @@ module BDGMFT
 
     export BdGMFT, GetMFTEnergy
 
-    using TightBindingToolbox, LinearAlgebra, Logging
+    using TightBindingToolkit, LinearAlgebra, Logging
 
-    using ..MeanFieldToolbox.MFTBonds: GetBondCoorelation
+    using ..MeanFieldToolkit.MFTBonds: GetBondCoorelation
 
-    import ..MeanFieldToolbox.TBMFT: GetMFTEnergy
+    import ..MeanFieldToolkit.TBMFT: GetMFTEnergy
     
 
 @doc """

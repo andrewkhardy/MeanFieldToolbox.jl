@@ -2,11 +2,11 @@ module Build
 
     export BuildFromInteractions!
 
-    using LinearAlgebra, TightBindingToolbox, Logging
+    using LinearAlgebra, TightBindingToolkit, Logging
 
-    using ..MeanFieldToolbox.MFTBonds: GetMFTBonds, GetBondDictionary
-    using ..MeanFieldToolbox.TBMFT:TightBindingMFT
-    using ..MeanFieldToolbox.BDGMFT:BdGMFT
+    using ..MeanFieldToolkit.MFTBonds: GetMFTBonds, GetBondDictionary
+    using ..MeanFieldToolkit.TBMFT:TightBindingMFT
+    using ..MeanFieldToolkit.BDGMFT:BdGMFT
 
 
     ##### ///TODO: Add Free Hopping energies also

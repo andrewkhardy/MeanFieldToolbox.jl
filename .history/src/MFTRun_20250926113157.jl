@@ -1,11 +1,11 @@
 module MFTRun
     export SolveMFT!
 
-    using FixedPointToolbox, Distributions, TightBindingToolbox, Logging, LinearAlgebra
+    using FixedPointToolkit, Distributions, TightBindingToolkit, Logging, LinearAlgebra
 
-    using ..MeanFieldToolbox.TBMFT: TightBindingMFT
-    using ..MeanFieldToolbox.BDGMFT: BdGMFT
-    using ..MeanFieldToolbox.MFTIter: MFTIterator
+    using ..MeanFieldToolkit.TBMFT: TightBindingMFT
+    using ..MeanFieldToolkit.BDGMFT: BdGMFT
+    using ..MeanFieldToolkit.MFTIter: MFTIterator
 
 
 @doc """
@@ -19,7 +19,7 @@ SolveMFT!(mft::BdGMFT{T, R, R}, Initial::Vector{R}; Update::Function = SimpleMix
 SolveMFT!(mft::TightBindingMFT{T, R}, Initial::Vector{R}, fileName::String; Update::Function = SimpleMixing, Update_kwargs::Dict{Symbol, Any} = Dict{Symbol, Any}(:alpha => 0.5), max_iter::Int64 = 100, tol::Float64 = 1e-6, checkpoint_interval::Int64 = 50) --> SelfCons
 SolveMFT!(mft::BdGMFT{T, R, R}, Initial::Vector{R}, fileName::String; Update::Function = SimpleMixing, Update_kwargs::Dict{Symbol, Any} = Dict{Symbol, Any}(:alpha => 0.5), max_iter::Int64 = 100, tol::Float64 = 1e-6, checkpoint_interval::Int64 = 50) --> SelfCons
 ```
-Solves the mean-field theory on the given `MFT` object, and returns the `SelfCons` object (Refer to [FixedPointToolbox](https://github.com/Anjishnubose/FixedPointToolbox.jl)) containing the results of the mean-field theory.
+Solves the mean-field theory on the given `MFT` object, and returns the `SelfCons` object (Refer to [FixedPointToolkit](https://github.com/Anjishnubose/FixedPointToolkit.jl)) containing the results of the mean-field theory.
 - If `fileName` is passed, then the `SelfCons` object is saved to the file after every `checkpoint_interval` iterations.
 - If `Initial` is passed, then the initial order parameters are set to the values in `Initial`.
 - If `Initial_range` is passed, then the initial order parameters are set to random values in the range `Initial_range`.

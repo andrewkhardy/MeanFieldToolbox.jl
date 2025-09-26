@@ -1,7 +1,7 @@
 module MFTBonds
     export GetBondCoorelation, GetMFTBonds, GetBondDictionary
 
-    using TightBindingToolbox, LinearAlgebra, Tullio
+    using TightBindingToolkit, LinearAlgebra, Tullio
 
 
 @doc """
