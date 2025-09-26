@@ -1,6 +1,6 @@
 # MeanFieldToolbox.jl
 
-[![Build Status](https://github.com/Anjishnubose/MeanFieldToolkit.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/Anjishnubose/MeanFieldToolkit.jl/actions/workflows/CI.yml?query=branch%3Amain)
+[![Build Status](https://github.com/andrewkhardy/MeanFieldToolbox.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/andrewkhardy/MeanFieldToolbox.jl/actions/workflows/CI.yml?query=branch%3Amain)
 
 MeanFieldToolbox.jl is a Julia package meant for solving generalized self-consistent mean-field equations on a lattice. It is an updated version of the now abandoned [MeanFieldToolkit.jl](https://github.com/Anjishnubose/MeanFieldToolkit.jl/)
 
