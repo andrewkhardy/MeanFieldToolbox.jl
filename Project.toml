@@ -1,6 +1,11 @@
 name = "MeanFieldToolbox"
+<<<<<<< HEAD
 uuid = "b00fcea2-f4b1-4480-b444-a0ed31c44801"
 authors = ["Anjishnu Bose","Andrew Hardy,"Samuel Vadnais"]
+=======
+uuid = "cf08300c-55d5-437b-9e19-1bdf734b6063"
+authors = ["Anjishnu Bose","Andrew Hardy, "Samuel Vadnais"]
+>>>>>>> 1ffe4fe375691687a853c70096f7c0127ff6a5fc
 version = "1.1.2"
 
 [deps]
