@@ -21,6 +21,6 @@ makedocs(
 )
 
 deploydocs(
-    repo = "github.com/andrewkhardy/MeanFieldToolbox.jl.git",
+    repo = "github.com/Anjishnubose/MeanFieldToolbox.jl.git",
     devbranch = "main"
 )

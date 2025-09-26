@@ -1,6 +1,6 @@
-include("../src/MeanFieldToolbox.jl")
-using .MeanFieldToolbox
-using TightBindingToolbox, FixedPointToolbox, JLD2, Plots, LaTeXStrings
+include("../src/MeanFieldToolkit.jl")
+using .MeanFieldToolkit
+using TightBindingToolkit, FixedPointToolkit, JLD2, Plots, LaTeXStrings
 
 ##### primitive vectors
 const a1  =   [1/2, sqrt(3)/2]
@@ -78,6 +78,8 @@ function honeycombMFT(t1::Float64, t3::Float64, inPlaneField::Float64, outPlaneF
     else
         sc = SolveMFT!(mft; max_iter=200, tol=1e-4)
     end
+    # save(fileName, Dict("ferro"=> ferro.value[end], "t1" => t1Chi.value[end], "t3" => t3Chi.value[end],
+    #     "energy" => mft.MFTEnergy[end]))
 
     return mft
 
@@ -106,6 +108,9 @@ t1s = Float64[]
 t3s = Float64[]
 energies = Float64[]
 
+# alpha1 = 1.0
+# OnSiteScaling = 1-alpha1
+# scalings = Dict{String, Float64}("ij" => alpha1, "ii" => OnSiteScaling, "jj" => OnSiteScaling)
 scalings1 = Dict{String, Float64}("ij" => alpha1, "ii" => 1.0 - alpha1, "jj" => 1.0 - alpha1)
 scalings3 = Dict{String, Float64}("ij" => alpha3, "ii" => 1.0 - alpha3, "jj" => 1.0 - alpha3)
 scalings = Dict{String, Any}("J1 Interaction" => scalings1, "J3 Interaction" => scalings3)
@@ -113,6 +118,7 @@ scalings = Dict{String, Any}("J1 Interaction" => scalings1, "J3 Interaction" => 
 
 
 for (b, Bx) in enumerate(inPlanes)
+    # fileName = "./Sample/HoneycombXXZ/J1=$(round(J1, digits=2))_J3=$(round(J3, digits=2))_Bx=$(Bx)_T=$(T)_kSpace.jld2"
     fileName = ""
     sc = honeycombMFT(0.0, 0.0, Bx, outPlaneField, J1, J3, fileName, scalings)
     push!(ferros, sc.HoppingOrders[1].value[end])

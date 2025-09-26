@@ -1,4 +1,4 @@
-using MeanFieldToolbox, TightBindingToolbox, FixedPointToolbox
+using MeanFieldToolkit, TightBindingToolkit, FixedPointToolkit
 using LinearAlgebra, Distributions, Base.Threads
 ##### YOU NEED TO CREATE THE FOLDER Sample/SquareHubbard_Data BEFORE RUNNING THIS SCRIPT
 ########## Defining square lattice 

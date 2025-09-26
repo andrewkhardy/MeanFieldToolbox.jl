@@ -1,6 +1,6 @@
-include("../src/MeanFieldToolbox.jl")
-using .MeanFieldToolbox
-using TightBindingToolbox, FixedPointToolbox, JLD2, Plots, LaTeXStrings
+include("../src/MeanFieldToolkit.jl")
+using .MeanFieldToolkit
+using TightBindingToolkit, FixedPointToolkit, JLD2, Plots, LaTeXStrings
 
 ##### primitive vectors
 const a1  =   [1/2, sqrt(3)/2]
@@ -78,6 +78,8 @@ function honeycombMFT(t1::Float64, t3::Float64, inPlaneField::Float64, outPlaneF
     else
         sc = SolveMFT!(mft; max_iter=200, tol=1e-4)
     end
+    # save(fileName, Dict("ferro"=> ferro.value[end], "t1" => t1Chi.value[end], "t3" => t3Chi.value[end],
+    #     "energy" => mft.MFTEnergy[end]))
 
     return mft
 

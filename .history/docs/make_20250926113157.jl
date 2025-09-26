@@ -1,10 +1,10 @@
 using Documenter
-using MeanFieldToolbox
+using MeanFieldToolkit
 
 makedocs(
     build       =   "build" ,
-    sitename    =   "MeanFieldToolbox.jl"    ,
-    modules     =   [MeanFieldToolbox.MFTDecompose, MeanFieldToolbox.MFTBonds, MeanFieldToolbox.TBMFT, MeanFieldToolbox.BDGMFT, MeanFieldToolbox.Build, MeanFieldToolbox.MFTIter, MeanFieldToolbox.MFTRun, MeanFieldToolbox.MFTResume, MeanFieldToolbox.MFTPlot, MeanFieldToolbox.InteractionConvert]   ,
+    sitename    =   "MeanFieldToolkit.jl"    ,
+    modules     =   [MeanFieldToolkit.MFTDecompose, MeanFieldToolkit.MFTBonds, MeanFieldToolkit.TBMFT, MeanFieldToolkit.BDGMFT, MeanFieldToolkit.Build, MeanFieldToolkit.MFTIter, MeanFieldToolkit.MFTRun, MeanFieldToolkit.MFTResume, MeanFieldToolkit.MFTPlot, MeanFieldToolkit.InteractionConvert]   ,
     pages = [
         "Introduction"              =>  "index.md",
         "MFTDecompose"              =>  "MFTDecompose.md",
@@ -21,6 +21,6 @@ makedocs(
 )
 
 deploydocs(
-    repo = "github.com/andrewkhardy/MeanFieldToolbox.jl.git",
+    repo = "github.com/Anjishnubose/MeanFieldToolkit.jl.git",
     devbranch = "main"
 )
