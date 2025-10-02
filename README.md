@@ -14,4 +14,4 @@ Currently supported :
 
 # Documentation
 
-For further details, please refer to the [Documentation](https://anjishnubose.github.io/MeanFieldToolkit.jl/dev/).
+For further details, please refer to the [Documentation](https://andrewkhardy.github.io/MeanFieldToolbox.jl/dev/).
