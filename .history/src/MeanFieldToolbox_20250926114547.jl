@@ -14,7 +14,7 @@ module MeanFieldToolbox
 
     include("TightBindingMFT.jl")
     using .TBMFT
-    export TBMFT, GetMFTEnergy
+    export TightBindingMFT, GetMFTEnergy
 
     include("BdGMFT.jl")
     using .BDGMFT
