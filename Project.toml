@@ -3,10 +3,6 @@ uuid = "c58931ec-05f5-413b-8af4-bc3453161d65"
 authors = ["Anjishnu Bose","Andrew Hardy","Samuel Vadnais"]
 version = "1.1.2"
 
-[sources]
-FixedPointToolbox = {url = "https://github.com/andrewkhardy/FixedPointToolbox.jl.git"}
-TightBindingToolbox = {url = "https://github.com/andrewkhardy/TightBindingToolbox.jl.git"}
-
 [deps]
 Distributions = "31c24e10-a181-5473-b8eb-7969acd0382f"
 FixedPointToolbox = "0de1d71a-ce40-41ac-9724-bc943b23ae8b"
