@@ -71,7 +71,7 @@ function honeycombMFT(t1::Float64, t3::Float64, inPlaneField::Float64, outPlaneF
     DiagonalizeHamiltonian!(H)
 
     model    =   Model(HoppingUC, bz, H ; T=T, filling=filling, stat=stat)
-    mft      =   TBMFT(model, expectations, InteractionParams, InterQuarticToHopping, scalings)
+    mft      =   TBMFTModel(model, expectations, InteractionParams, InterQuarticToHopping, scalings)
 
     if fileName != ""
         sc = SolveMFT!(mft, fileName; max_iter=200, tol=1e-4);
