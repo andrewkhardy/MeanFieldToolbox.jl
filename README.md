@@ -2,7 +2,7 @@
 
 [![Build Status](https://github.com/andrewkhardy/MeanFieldToolbox.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/andrewkhardy/MeanFieldToolbox.jl/actions/workflows/CI.yml?query=branch%3Amain)
 
-MeanFieldToolbox.jl is a Julia package meant for solving generalized self-consistent mean-field equations on a lattice.
+MeanFieldToolbox.jl is a Julia package meant for solving generalized self-consistent mean-field equations on a lattice. It is an updated version of [MeanFieldToolkit.jl](https://github.com/Anjishnubose/TightBindingToolkit.jl)
 
 Currently supported :
 * Lattice implementation is done through [TightBindingToolbox.jl](https://github.com/andrewkhardy/TightBindingToolbox.jl). Any custom lattice in $d=1,2,3$ is supported.
