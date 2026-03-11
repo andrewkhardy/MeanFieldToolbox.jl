@@ -1,4 +1,4 @@
-using MeanFieldToolkit, TightBindingToolkit, FixedPointToolkit
+using MeanFieldToolbox, TightBindingToolbox, FixedPointToolbox
 using LinearAlgebra, Distributions, Base.Threads
 using Plots
 ##### YOU NEED TO CREATE THE FOLDER Sample/SquareHubbard_Data to save the data
@@ -71,10 +71,10 @@ DiagonalizeHamiltonian!(H)
 
 M = Model(UC, bz, H; T=T, filling=0.5, stat=stat)
 SolveModel!(M)
-p = Plot_Band_Structure!(M, [bz.HighSymPoints["G"], bz.HighSymPoints["M1"], bz.HighSymPoints["M2"]], labels=["G", "X", "M", "G"])
+p = Plot_Band_Structure(M, [bz.HighSymPoints["G"], bz.HighSymPoints["M1"], bz.HighSymPoints["M2"]], labels=["G", "X", "M", "G"])
 display(p)
-mft = TBMFT(M, ChiParams, [UParam], IntraQuarticToHopping)
+mft = TBMFTModel(M, ChiParams, [UParam], IntraQuarticToHopping)
 results = SolveMFT!(mft, max_iter = 1000, tol = 1E-6)#, fileName)
 p = plot(-1 .* mft.MFTEnergy, yscale=:log10, marker = "o")#, xlabel = "Iteration", ylabel = "MFT Energy", title = "Square Lattice Hubbard Model at U=4t, n=0.5", legend = false)
 display(p)
-Plot_Band_Structure!(M, [bz.HighSymPoints["G"], bz.HighSymPoints["M1"], bz.HighSymPoints["M2"]], labels=["G", "X", "M", "G"])
+Plot_Band_Structure(M, [bz.HighSymPoints["G"], bz.HighSymPoints["M1"], bz.HighSymPoints["M2"]], labels=["G", "X", "M", "G"])

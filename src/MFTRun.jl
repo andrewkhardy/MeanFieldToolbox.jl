@@ -3,12 +3,12 @@ module MFTRun
 
     using FixedPointToolbox, Distributions, TightBindingToolbox, Logging, LinearAlgebra, JLD2
 
-    using ..MeanFieldToolbox.TBMFT: TBMFT
-    using ..MeanFieldToolbox.BDGMFT: BdGMFT
+    using ..MeanFieldToolbox.TBMFT: TBMFTModel
+    using ..MeanFieldToolbox.BdGMFT: BdGMFTModel
     using ..MeanFieldToolbox.MFTIter: MFTIterator
 
 
-    function extract_data!(mft::TBMFT, selfcons::SelfCons, fileName::String)
+    function extract_data!(mft::TBMFTModel, selfcons::SelfCons, fileName::String)
 
         data = Dict{String, Any}(
             "Iterations" => length(selfcons.VIns) - 1,
@@ -24,7 +24,7 @@ module MFTRun
         save(fileName, data)
     end
 
-    function extract_data!(mft::BdGMFT, selfcons::SelfCons, fileName::String)
+    function extract_data!(mft::BdGMFTModel, selfcons::SelfCons, fileName::String)
 
         data = Dict{String, Any}(
             "Iterations" => length(selfcons.VIns) - 1,
@@ -44,14 +44,14 @@ module MFTRun
 
 @doc """
 ```julia
-SolveMFT!(mft::TBMFT{T, R} ; Update::Function = SimpleMixing, Update_kwargs::Dict{Symbol, Any} = Dict{Symbol, Any}(:alpha => 0.5), max_iter::Int64 = 100, tol::Float64 = 1e-6, Initial_range::Tuple{Float64, Float64} = (-0.5, 0.5)) --> SelfCons
-SolveMFT!(mft::BdGMFT{T, R, R} ; Update::Function = SimpleMixing, Update_kwargs::Dict{Symbol, Any} = Dict{Symbol, Any}(:alpha => 0.5), max_iter::Int64 = 100, tol::Float64 = 1e-6, Initial_range::Tuple{Float64, Float64} = (-0.5, 0.5)) --> SelfCons 
-SolveMFT!(mft::TBMFT{T, R}, fileName::String ; Update::Function = SimpleMixing, Update_kwargs::Dict{Symbol, Any} = Dict{Symbol, Any}(:alpha => 0.5), max_iter::Int64 = 100, tol::Float64 = 1e-6, checkpoint_interval::Int64 = 50, debug::Bool = false, Initial_range::Tuple{Float64, Float64} = (-0.5, 0.5)) --> SelfCons 
-SolveMFT!(mft::BdGMFT{T, R, R}, fileName::String ; Update::Function = SimpleMixing, Update_kwargs::Dict{Symbol, Any} = Dict{Symbol, Any}(:alpha => 0.5), max_iter::Int64 = 100, tol::Float64 = 1e-6, checkpoint_interval::Int64 = 50, debug::Bool = false, Initial_range::Tuple{Float64, Float64} = (-0.5, 0.5)) --> SelfCons 
-SolveMFT!(mft::TBMFT{T, R}, Initial::Vector{R}; Update::Function = SimpleMixing, Update_kwargs::Dict{Symbol, Any} = Dict{Symbol, Any}(:alpha => 0.5), max_iter::Int64 = 100, tol::Float64 = 1e-6) --> SelfCons
-SolveMFT!(mft::BdGMFT{T, R, R}, Initial::Vector{R}; Update::Function = SimpleMixing, Update_kwargs::Dict{Symbol, Any} = Dict{Symbol, Any}(:alpha => 0.5), max_iter::Int64 = 100, tol::Float64 = 1e-6) --> SelfCons 
-SolveMFT!(mft::TBMFT{T, R}, Initial::Vector{R}, fileName::String; Update::Function = SimpleMixing, Update_kwargs::Dict{Symbol, Any} = Dict{Symbol, Any}(:alpha => 0.5), max_iter::Int64 = 100, tol::Float64 = 1e-6, checkpoint_interval::Int64 = 50, debug::Bool = false) --> SelfCons
-SolveMFT!(mft::BdGMFT{T, R, R}, Initial::Vector{R}, fileName::String; Update::Function = SimpleMixing, Update_kwargs::Dict{Symbol, Any} = Dict{Symbol, Any}(:alpha => 0.5), max_iter::Int64 = 100, tol::Float64 = 1e-6, checkpoint_interval::Int64 = 50, debug::Bool = false) --> SelfCons
+SolveMFT!(mft::TBMFTModel{T, R} ; Update::Function = SimpleMixing, Update_kwargs::Dict{Symbol, Any} = Dict{Symbol, Any}(:alpha => 0.5), max_iter::Int64 = 100, tol::Float64 = 1e-6, Initial_range::Tuple{Float64, Float64} = (-0.5, 0.5)) --> SelfCons
+SolveMFT!(mft::BdGMFTModel{T, R, R} ; Update::Function = SimpleMixing, Update_kwargs::Dict{Symbol, Any} = Dict{Symbol, Any}(:alpha => 0.5), max_iter::Int64 = 100, tol::Float64 = 1e-6, Initial_range::Tuple{Float64, Float64} = (-0.5, 0.5)) --> SelfCons 
+SolveMFT!(mft::TBMFTModel{T, R}, fileName::String ; Update::Function = SimpleMixing, Update_kwargs::Dict{Symbol, Any} = Dict{Symbol, Any}(:alpha => 0.5), max_iter::Int64 = 100, tol::Float64 = 1e-6, checkpoint_interval::Int64 = 50, debug::Bool = false, Initial_range::Tuple{Float64, Float64} = (-0.5, 0.5)) --> SelfCons 
+SolveMFT!(mft::BdGMFTModel{T, R, R}, fileName::String ; Update::Function = SimpleMixing, Update_kwargs::Dict{Symbol, Any} = Dict{Symbol, Any}(:alpha => 0.5), max_iter::Int64 = 100, tol::Float64 = 1e-6, checkpoint_interval::Int64 = 50, debug::Bool = false, Initial_range::Tuple{Float64, Float64} = (-0.5, 0.5)) --> SelfCons 
+SolveMFT!(mft::TBMFTModel{T, R}, Initial::Vector{R}; Update::Function = SimpleMixing, Update_kwargs::Dict{Symbol, Any} = Dict{Symbol, Any}(:alpha => 0.5), max_iter::Int64 = 100, tol::Float64 = 1e-6) --> SelfCons
+SolveMFT!(mft::BdGMFTModel{T, R, R}, Initial::Vector{R}; Update::Function = SimpleMixing, Update_kwargs::Dict{Symbol, Any} = Dict{Symbol, Any}(:alpha => 0.5), max_iter::Int64 = 100, tol::Float64 = 1e-6) --> SelfCons 
+SolveMFT!(mft::TBMFTModel{T, R}, Initial::Vector{R}, fileName::String; Update::Function = SimpleMixing, Update_kwargs::Dict{Symbol, Any} = Dict{Symbol, Any}(:alpha => 0.5), max_iter::Int64 = 100, tol::Float64 = 1e-6, checkpoint_interval::Int64 = 50, debug::Bool = false) --> SelfCons
+SolveMFT!(mft::BdGMFTModel{T, R, R}, Initial::Vector{R}, fileName::String; Update::Function = SimpleMixing, Update_kwargs::Dict{Symbol, Any} = Dict{Symbol, Any}(:alpha => 0.5), max_iter::Int64 = 100, tol::Float64 = 1e-6, checkpoint_interval::Int64 = 50, debug::Bool = false) --> SelfCons
 ```
 Solves the mean-field theory on the given `MFT` object, and returns the `SelfCons` object (Refer to [FixedPointToolbox](https://github.com/Anjishnubose/FixedPointToolbox.jl)) containing the results of the mean-field theory.
 - If `fileName` is passed and `debug = true`, then the `SelfCons` object is checkpointed to the file after every `checkpoint_interval` iterations.
@@ -64,7 +64,7 @@ Solves the mean-field theory on the given `MFT` object, and returns the `SelfCon
 - If `tol` is passed, then the tolerance for convergence is set to `tol`.
 
 """
-    function SolveMFT!(mft::TBMFT{T, R} ; Update::Function = SimpleMixing, Update_kwargs::Dict{Symbol, Any} = Dict{Symbol, Any}(:alpha => 0.5), max_iter::Int64 = 100, tol::Float64 = 1e-6, Initial_range::Tuple{Float64, Float64} = (-0.5, 0.5)) :: SelfCons where {T, R}
+    function SolveMFT!(mft::TBMFTModel{T, R} ; Update::Function = SimpleMixing, Update_kwargs::Dict{Symbol, Any} = Dict{Symbol, Any}(:alpha => 0.5), max_iter::Int64 = 100, tol::Float64 = 1e-6, Initial_range::Tuple{Float64, Float64} = (-0.5, 0.5)) :: SelfCons where {T, R}
 
         Initial     =   R.(rand(Uniform(Initial_range...), length(mft.HoppingOrders)))
         selfcons    =   SelfCons(MFTIterator, Update, Initial ; F_args = (mft , ), Update_kwargs = Update_kwargs)
@@ -77,7 +77,7 @@ Solves the mean-field theory on the given `MFT` object, and returns the `SelfCon
         return selfcons
     end
 
-    function SolveMFT!(mft::BdGMFT{T, R, R} ; Update::Function = SimpleMixing, Update_kwargs::Dict{Symbol, Any} = Dict{Symbol, Any}(:alpha => 0.5), max_iter::Int64 = 100, tol::Float64 = 1e-6, Initial_range::Tuple{Float64, Float64} = (-0.5, 0.5)) :: SelfCons where {T, R}
+    function SolveMFT!(mft::BdGMFTModel{T, R, R} ; Update::Function = SimpleMixing, Update_kwargs::Dict{Symbol, Any} = Dict{Symbol, Any}(:alpha => 0.5), max_iter::Int64 = 100, tol::Float64 = 1e-6, Initial_range::Tuple{Float64, Float64} = (-0.5, 0.5)) :: SelfCons where {T, R}
 
         Initial     =   R.(rand(Uniform(Initial_range...), length(mft.HoppingOrders) + length(mft.PairingOrders)))
         selfcons    =   SelfCons(MFTIterator, Update, Initial ; F_args = (mft , ), Update_kwargs = Update_kwargs)
@@ -91,7 +91,7 @@ Solves the mean-field theory on the given `MFT` object, and returns the `SelfCon
     end
 
 
-    function SolveMFT!(mft::TBMFT{T, R}, fileName::String ; Update::Function = SimpleMixing, Update_kwargs::Dict{Symbol, Any} = Dict{Symbol, Any}(:alpha => 0.5), max_iter::Int64 = 100, tol::Float64 = 1e-6, checkpoint_interval::Int64 = 50, debug::Bool = false, Initial_range::Tuple{Float64, Float64} = (-0.5, 0.5)) :: SelfCons where {T, R}
+    function SolveMFT!(mft::TBMFTModel{T, R}, fileName::String ; Update::Function = SimpleMixing, Update_kwargs::Dict{Symbol, Any} = Dict{Symbol, Any}(:alpha => 0.5), max_iter::Int64 = 100, tol::Float64 = 1e-6, checkpoint_interval::Int64 = 50, debug::Bool = false, Initial_range::Tuple{Float64, Float64} = (-0.5, 0.5)) :: SelfCons where {T, R}
 
         Initial     =   R.(rand(Uniform(Initial_range...), length(mft.HoppingOrders)))
         selfcons    =   SelfCons(MFTIterator, Update, Initial ; F_args = (mft , ), Update_kwargs = Update_kwargs)
@@ -107,7 +107,7 @@ Solves the mean-field theory on the given `MFT` object, and returns the `SelfCon
         return selfcons
     end
 
-    function SolveMFT!(mft::BdGMFT{T, R, R}, fileName::String ; Update::Function = SimpleMixing, Update_kwargs::Dict{Symbol, Any} = Dict{Symbol, Any}(:alpha => 0.5), max_iter::Int64 = 100, tol::Float64 = 1e-6, checkpoint_interval::Int64 = 50, debug::Bool = false, Initial_range::Tuple{Float64, Float64} = (-0.5, 0.5)) :: SelfCons where {T, R}
+    function SolveMFT!(mft::BdGMFTModel{T, R, R}, fileName::String ; Update::Function = SimpleMixing, Update_kwargs::Dict{Symbol, Any} = Dict{Symbol, Any}(:alpha => 0.5), max_iter::Int64 = 100, tol::Float64 = 1e-6, checkpoint_interval::Int64 = 50, debug::Bool = false, Initial_range::Tuple{Float64, Float64} = (-0.5, 0.5)) :: SelfCons where {T, R}
 
         Initial     =   R.(rand(Uniform(Initial_range...), length(mft.HoppingOrders) + length(mft.PairingOrders)))
         selfcons    =   SelfCons(MFTIterator, Update, Initial ; F_args = (mft , ), Update_kwargs = Update_kwargs)
@@ -124,7 +124,7 @@ Solves the mean-field theory on the given `MFT` object, and returns the `SelfCon
     end
 
 
-    function SolveMFT!(mft::TBMFT{T, R}, Initial::Vector{R}; Update::Function = SimpleMixing, Update_kwargs::Dict{Symbol, Any} = Dict{Symbol, Any}(:alpha => 0.5), max_iter::Int64 = 100, tol::Float64 = 1e-6) :: SelfCons where {T, R}
+    function SolveMFT!(mft::TBMFTModel{T, R}, Initial::Vector{R}; Update::Function = SimpleMixing, Update_kwargs::Dict{Symbol, Any} = Dict{Symbol, Any}(:alpha => 0.5), max_iter::Int64 = 100, tol::Float64 = 1e-6) :: SelfCons where {T, R}
 
         selfcons    =   SelfCons(MFTIterator, Update, Initial ; F_args = (mft , ), Update_kwargs = Update_kwargs)
         
@@ -136,7 +136,7 @@ Solves the mean-field theory on the given `MFT` object, and returns the `SelfCon
         return selfcons
     end
 
-    function SolveMFT!(mft::BdGMFT{T, R, R}, Initial::Vector{R}; Update::Function = SimpleMixing, Update_kwargs::Dict{Symbol, Any} = Dict{Symbol, Any}(:alpha => 0.5), max_iter::Int64 = 100, tol::Float64 = 1e-6) :: SelfCons where {T, R}
+    function SolveMFT!(mft::BdGMFTModel{T, R, R}, Initial::Vector{R}; Update::Function = SimpleMixing, Update_kwargs::Dict{Symbol, Any} = Dict{Symbol, Any}(:alpha => 0.5), max_iter::Int64 = 100, tol::Float64 = 1e-6) :: SelfCons where {T, R}
 
         selfcons    =   SelfCons(MFTIterator, Update, Initial ; F_args = (mft , ), Update_kwargs = Update_kwargs)
         
@@ -148,7 +148,7 @@ Solves the mean-field theory on the given `MFT` object, and returns the `SelfCon
         return selfcons
     end
 
-    function SolveMFT!(mft::TBMFT{T, R}, Initial::Vector{R}, fileName::String; Update::Function = SimpleMixing, Update_kwargs::Dict{Symbol, Any} = Dict{Symbol, Any}(:alpha => 0.5), max_iter::Int64 = 100, tol::Float64 = 1e-6, checkpoint_interval::Int64 = 50, debug::Bool = false) :: SelfCons where {T, R}
+    function SolveMFT!(mft::TBMFTModel{T, R}, Initial::Vector{R}, fileName::String; Update::Function = SimpleMixing, Update_kwargs::Dict{Symbol, Any} = Dict{Symbol, Any}(:alpha => 0.5), max_iter::Int64 = 100, tol::Float64 = 1e-6, checkpoint_interval::Int64 = 50, debug::Bool = false) :: SelfCons where {T, R}
 
         selfcons    =   SelfCons(MFTIterator, Update, Initial ; F_args = (mft , ), Update_kwargs = Update_kwargs)
         
@@ -163,7 +163,7 @@ Solves the mean-field theory on the given `MFT` object, and returns the `SelfCon
         return selfcons
     end
 
-    function SolveMFT!(mft::BdGMFT{T, R, R}, Initial::Vector{R}, fileName::String; Update::Function = SimpleMixing, Update_kwargs::Dict{Symbol, Any} = Dict{Symbol, Any}(:alpha => 0.5), max_iter::Int64 = 100, tol::Float64 = 1e-6, checkpoint_interval::Int64 = 50, debug::Bool = false) :: SelfCons where {T, R}
+    function SolveMFT!(mft::BdGMFTModel{T, R, R}, Initial::Vector{R}, fileName::String; Update::Function = SimpleMixing, Update_kwargs::Dict{Symbol, Any} = Dict{Symbol, Any}(:alpha => 0.5), max_iter::Int64 = 100, tol::Float64 = 1e-6, checkpoint_interval::Int64 = 50, debug::Bool = false) :: SelfCons where {T, R}
 
         selfcons    =   SelfCons(MFTIterator, Update, Initial ; F_args = (mft , ), Update_kwargs = Update_kwargs)
         

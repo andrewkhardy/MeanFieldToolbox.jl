@@ -4,8 +4,8 @@ module MFTIter
     using TightBindingToolbox, LinearAlgebra, Statistics
 
     using ..MeanFieldToolbox.MFTBonds: GetBondCoorelation
-    using ..MeanFieldToolbox.TBMFT: TBMFT, GetMFTEnergy
-    using ..MeanFieldToolbox.BDGMFT: BdGMFT, GetMFTEnergy
+    using ..MeanFieldToolbox.TBMFT: TBMFTModel, GetMFTEnergy
+    using ..MeanFieldToolbox.BdGMFT: BdGMFTModel, GetMFTEnergy
     using ..MeanFieldToolbox.Build: BuildFromInteractions!
 
     #####/// TODO : Try to vectorize maybe? Literally no need
@@ -38,13 +38,13 @@ The order parameter is calculated by taking the trace decomposition of the Green
     ##### ///TODO Pass in the initial chemical potential guess to MFTIterator
 @doc """
 ```julia
-MFTIterator(Strengths::Vector{R}, tbMFT::TBMFT{T, R}) --> Vector{R}
-MFTIterator(Strengths::Vector{R}, bdgMFT::BdGMFT{T, R, R}) --> Vector{R}
+MFTIterator(Strengths::Vector{R}, tbMFT::TBMFTModel{T, R}) --> Vector{R}
+MFTIterator(Strengths::Vector{R}, bdgMFT::BdGMFTModel{T, R, R}) --> Vector{R}
 ```
 Runs a single iteration of the mean-field theory on the given `MFT` object, and returns the new order parameters.
 
 """
-    function MFTIterator(Strengths::Vector{R}, tbMFT::TBMFT{T, R}) :: Vector{R} where {T, R <: Union{Float64, ComplexF64}}
+    function MFTIterator(Strengths::Vector{R}, tbMFT::TBMFTModel{T, R}) :: Vector{R} where {T, R <: Union{Float64, ComplexF64}}
         ##### Push the new order parameters into the `HoppingOrders` attribute of the `MFT` object
         push!.( getproperty.(tbMFT.HoppingOrders, :value) , Strengths)
         ##### Recalculate the lookup table for the new order parameters
@@ -67,7 +67,7 @@ Runs a single iteration of the mean-field theory on the given `MFT` object, and 
         return NewStrengths
     end
 
-    function MFTIterator(Strengths::Vector{R}, bdgMFT::BdGMFT{T, R, R}) :: Vector{R} where {T, R <: Union{Float64, ComplexF64}}
+    function MFTIterator(Strengths::Vector{R}, bdgMFT::BdGMFTModel{T, R, R}) :: Vector{R} where {T, R <: Union{Float64, ComplexF64}}
         ##### Push the new order parameters into the `HoppingOrders` and `PairingOrders` attributes of the `MFT` object
         push!.( getproperty.(bdgMFT.HoppingOrders, :value) , Strengths[begin : length(bdgMFT.HoppingOrders)])
         push!.( getproperty.(bdgMFT.PairingOrders, :value) , Strengths[length(bdgMFT.HoppingOrders) + 1 : end])
