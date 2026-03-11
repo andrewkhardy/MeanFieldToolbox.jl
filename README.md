@@ -1,6 +1,6 @@
 # MeanFieldToolbox.jl
 
-[![Build Status](https://https://github.com/Toronto-Condensed-Matter-TheoryMeanFieldToolbox.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://https://github.com/Toronto-Condensed-Matter-TheoryMeanFieldToolbox.jl/actions/workflows/CI.yml?query=branch%3Amain)
+[![Build Status](https://https://github.com/Toronto-Condensed-Matter-Theory/MeanFieldToolbox.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://https://github.com/Toronto-Condensed-Matter-Theory/MeanFieldToolbox.jl/actions/workflows/CI.yml?query=branch%3Amain)
 
 MeanFieldToolbox.jl is a Julia package meant for solving generalized self-consistent mean-field equations on a lattice. It is an updated version of [MeanFieldToolkit.jl](https://github.com/Anjishnubose/TightBindingToolkit.jl)
 
@@ -14,4 +14,4 @@ Currently supported :
 
 # Documentation
 
-For further details, please refer to the [Documentation](https://andrewkhardy.github.io/MeanFieldToolbox.jl/dev/).
+For further details, please refer to the [Documentation](https://Toronto-Condensed-Matter-Theory.github.io/MeanFieldToolbox.jl/dev/).
