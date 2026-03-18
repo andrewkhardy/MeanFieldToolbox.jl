@@ -3,8 +3,8 @@ module MFTPlot
 
     using Plots
 
-    using ..MeanFieldToolbox.TBMFT: TBMFTModel
-    using ..MeanFieldToolbox.BdGMFT: BdGMFTModel
+    using ..MeanFieldToolkit.TBMFT: TBMFTModel
+    using ..MeanFieldToolkit.BdGMFT: BdGMFTModel
 
 
 @doc """

@@ -1,4 +1,4 @@
-module MeanFieldToolbox
+module MeanFieldToolkit
 
     include("MFTDecompose.jl")
     using .MFTDecompose

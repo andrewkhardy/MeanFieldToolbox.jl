@@ -1,7 +1,7 @@
-# MeanFieldToolbox.MFTDecompose
+# MeanFieldToolkit.MFTDecompose
 
 ```@autodocs
-Modules = [MeanFieldToolbox, MeanFieldToolbox.MFTDecompose]
+Modules = [MeanFieldToolkit, MeanFieldToolkit.MFTDecompose]
 Private = false
 Pages   = ["MFTDecompose.jl"]
 

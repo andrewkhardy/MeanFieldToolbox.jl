@@ -1,7 +1,7 @@
-# MeanFieldToolbox.MFTPlot
+# MeanFieldToolkit.MFTPlot
 
 ```@autodocs
-Modules = [MeanFieldToolbox, MeanFieldToolbox.MFTPlot]
+Modules = [MeanFieldToolkit, MeanFieldToolkit.MFTPlot]
 Private = false
 Pages   = ["MFTPlot.jl"]
 

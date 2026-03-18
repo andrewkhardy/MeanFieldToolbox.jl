@@ -1,6 +1,6 @@
-include("../src/MeanFieldToolbox.jl")
-using .MeanFieldToolbox
-using TightBindingToolbox, FixedPointToolbox, JLD2, Plots, LaTeXStrings
+include("../src/MeanFieldToolkit.jl")
+using .MeanFieldToolkit
+using TightBindingToolkit, FixedPointToolkit, JLD2, Plots, LaTeXStrings
 
 ##### primitive vectors
 const a1  =   [1/2, sqrt(3)/2]

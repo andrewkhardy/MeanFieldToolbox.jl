@@ -1,7 +1,7 @@
 module MFTDecompose
     export InterQuarticToHopping, InterQuarticToPairing, IntraQuarticToHopping, IntraQuarticToPairing
     
-    using TightBindingToolbox, LinearAlgebra, Tullio
+    using TightBindingToolkit, LinearAlgebra, Tullio
 
 
 @doc """

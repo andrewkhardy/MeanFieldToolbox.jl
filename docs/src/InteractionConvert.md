@@ -1,7 +1,7 @@
-# MeanFieldToolbox.InteractionConvert
+# MeanFieldToolkit.InteractionConvert
 
 ```@autodocs
-Modules = [MeanFieldToolbox, MeanFieldToolbox.InteractionConvert]
+Modules = [MeanFieldToolkit, MeanFieldToolkit.InteractionConvert]
 Private = false
 Pages   = ["InteractionConvert.jl"]
 

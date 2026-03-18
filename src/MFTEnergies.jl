@@ -2,7 +2,7 @@ module MFTEnergies
 
     export GetMFTBondEnergies
 
-    using TightBindingToolbox
+    using TightBindingToolkit
     #### /// TODO : Add relative scaling to energy calculation   -----> Bonds are already scaled, so dont need to do this!!!
     
 @doc """

@@ -1,7 +1,7 @@
-# MeanFieldToolbox.BDGMFT
+# MeanFieldToolkit.BDGMFT
 
 ```@autodocs
-Modules = [MeanFieldToolbox, MeanFieldToolbox.BDGMFT]
+Modules = [MeanFieldToolkit, MeanFieldToolkit.BDGMFT]
 Private = false
 Pages   = ["BdGMFT.jl"]
 

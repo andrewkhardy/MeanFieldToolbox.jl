@@ -1,7 +1,7 @@
-# MeanFieldToolbox.MFTRun
+# MeanFieldToolkit.MFTRun
 
 ```@autodocs
-Modules = [MeanFieldToolbox, MeanFieldToolbox.MFTRun]
+Modules = [MeanFieldToolkit, MeanFieldToolkit.MFTRun]
 Private = false
 Pages   = ["MFTRun.jl"]
 

@@ -1,7 +1,7 @@
-# MeanFieldToolbox.TBMFT
+# MeanFieldToolkit.TBMFT
 
 ```@autodocs
-Modules = [MeanFieldToolbox, MeanFieldToolbox.TBMFT]
+Modules = [MeanFieldToolkit, MeanFieldToolkit.TBMFT]
 Private = false
 Pages   = ["TightBindingMFT.jl"]
 

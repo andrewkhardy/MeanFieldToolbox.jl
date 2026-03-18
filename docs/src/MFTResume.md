@@ -1,7 +1,7 @@
-# MeanFieldToolbox.MFTResume
+# MeanFieldToolkit.MFTResume
 
 ```@autodocs
-Modules = [MeanFieldToolbox, MeanFieldToolbox.MFTResume]
+Modules = [MeanFieldToolkit, MeanFieldToolkit.MFTResume]
 Private = false
 Pages   = ["MFTResume.jl"]
 

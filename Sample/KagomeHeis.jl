@@ -1,4 +1,4 @@
-using MeanFieldToolbox, TightBindingToolbox, FixedPointToolbox
+using MeanFieldToolkit, TightBindingToolkit, FixedPointToolkit
 using LinearAlgebra, Distributions, Distributions, LaTeXStrings, Base.Threads
 ##### YOU NEED TO CREATE THE FOLDER Sample/KagomeHeis_Data BEFORE RUNNING THIS SCRIPT
 ########## Defining Kagome lattice with the doubled unit cell

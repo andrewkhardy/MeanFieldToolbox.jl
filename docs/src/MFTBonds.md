@@ -1,7 +1,7 @@
-# MeanFieldToolbox.MFTBonds
+# MeanFieldToolkit.MFTBonds
 
 ```@autodocs
-Modules = [MeanFieldToolbox, MeanFieldToolbox.MFTBonds]
+Modules = [MeanFieldToolkit, MeanFieldToolkit.MFTBonds]
 Private = false
 Pages   = ["MFTBonds.jl"]
 

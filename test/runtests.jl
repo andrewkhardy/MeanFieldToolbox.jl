@@ -1,6 +1,6 @@
-using MeanFieldToolbox
+using MeanFieldToolkit
 using Test
 
-@testset "MeanFieldToolbox.jl" begin
+@testset "MeanFieldToolkit.jl" begin
     # Write your tests here.
 end

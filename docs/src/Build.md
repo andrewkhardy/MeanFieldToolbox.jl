@@ -1,7 +1,7 @@
-# MeanFieldToolbox.Build
+# MeanFieldToolkit.Build
 
 ```@autodocs
-Modules = [MeanFieldToolbox, MeanFieldToolbox.Build]
+Modules = [MeanFieldToolkit, MeanFieldToolkit.Build]
 Private = false
 Pages   = ["Build.jl"]
 

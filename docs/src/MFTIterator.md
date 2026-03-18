@@ -1,7 +1,7 @@
-# MeanFieldToolbox.MFTIter
+# MeanFieldToolkit.MFTIter
 
 ```@autodocs
-Modules = [MeanFieldToolbox, MeanFieldToolbox.MFTIter]
+Modules = [MeanFieldToolkit, MeanFieldToolkit.MFTIter]
 Private = false
 Pages   = ["MFTIterator.jl"]
 
